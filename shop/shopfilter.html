@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+        :root {
+        --primary: #e37676;
+        }
+
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+
+        html {
+        font-family: "Poppins", sans-serif;
+        }
+
+        .product_container {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+        }
+
+        .product_card {
+        box-shadow: 0px 7px 32px rgba(0, 0, 0, 0.25);
+        width: 600px;
+        min-height: 150px;
+        border-radius: 5px;
+        display: flex;
+        }
+
+        .image_container {
+        flex: 1;
+        border-right: 1px solid black;
+        padding: 10px 30px;
+        }
+        .image_container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        }
+        .product_content {
+        flex: 5;
+        padding: 10px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        }
+
+        /* Product Content Style */
+
+        .product_content h2 {
+        font-size: 16px;
+        font-weight: 500;
+        }
+        .product_content p {
+        font-size: 12px;
+        font-weight: 400;
+        opacity: 0.8;
+        }
+        .product_content button {
+        font-size: 20px;
+        background-color: var(--primary);
+        border: none;
+        color: white;
+        padding: 5px 20px;
+        margin-top: 10px;
+        align-self: end;
+        }
+        .input_container {
+        display: flex;
+        justify-content: center;
+        width: 600px;
+        margin: 20px auto;
+    
+        }
+        .input_container input {
+        width: 100%;
+        padding-left: 40px;
+        height: 35px;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        }
+        .input_container input::placeholder {
+        color: var(--primary);
+        }
+        .input_container input:focus {
+        outline: var(--primary);
+        }
+        .search_icon {
+        position: relative;
+        left: 35px;
+        margin-left: -35px;
+        display: grid;
+        place-items: center;
+        }
+        @media (max-width: 630px) {
+        .product_card {
+            width: 90%;
+        }
+        .input_container {
+            width: 90%;
+        }
+        .input-container{
+            width: 90%;
+        }
+        }
+        @media (max-width: 425px) {
+        .product_card {
+            flex-direction: column;
+        }
+        .product_content button {
+            align-self: stretch;
+        }
+        .image_container img{
+            width: 50%;
+
+        }
+        .image_container{
+            border: none;
+        }
+        .image_container{
+            text-align: center;
+        }
+        }
+    </style>
+  </head>
+  <body>
+    <div class="input_container">
+        <div class="search_icon">
+          <img src="search_icon.svg" />
+        </div>
+        <input id="searchInput" placeholder="Search Products..." type="text" />
+    </div>
+    <div class="product_container" id="productContainer">
+      <div class="product_card">
+        <div class="image_container">
+          <img
+            src="https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg"
+            alt=""
+          />
+        </div>
+        <div class="product_content">
+          <h2>
+            John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain
+            Bracelet"
+          </h2>
+          <p>
+            rom our Legends Collection, the Naga was inspired by the mythical
+            water dragon that protects the ocean's pearl. Wear facing inward
+          </p>
+          <button>15.99 $</button>
+        </div>
+      </div>
+    </div>
+    <script>
+        const prodcontainer = document.querySelector('#productContainer')
+    const searchInput = document.getElementById("searchInput");
+
+    (async()=>{
+        const url = "https://fakestoreapi.com/products";
+        async function fetchdata(){
+            try{
+                let p = await fetch(url)
+                return await p.json()    
+            }
+            catch(error){
+                return error
+            }
+        }
+        let products = await fetchdata()
+        function generateprods(product){
+            return `<div class="product_card">
+        <div class="image_container">
+          <img
+            src="${product.image}"
+            alt=""
+          />
+        </div>
+        <div class="product_content">
+          <h2>
+            ${product.title}
+          </h2>
+          <p>
+            ${product.description}
+          </p>
+          <button>$${product.price}</button>
+        </div>
+      </div>`
+        }
+        function rederprod(products){
+            prodcontainer.innerHTML = ''
+            products.forEach(product => {
+                prodcontainer.innerHTML +=  generateprods(product)
+            });
+        }
+        function Calculate(text, urtext){
+            return text.toString().toLowerCase().includes(urtext.toLowerCase())
+        }
+        function filterhandler(){
+            const searchtxt = searchInput.value
+            const filteredproducts = products.filter((product)=>{
+            return(
+                Calculate(product.title, searchtxt)||
+                Calculate(product.description, searchtxt)||
+                Calculate(product.price, searchtxt)
+            )
+        })
+            rederprod(filteredproducts)
+        }
+        searchInput.addEventListener('keyup', filterhandler)
+        rederprod(products)
+})()
+    </script>
+  </body>
+</html>
