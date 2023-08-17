@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Palette Generator</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+        :root {
+        --primary: #005a76;
+        }
+
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+
+        html {
+        font-family: "Poppins", sans-serif;
+        }
+
+        .title_container {
+        background: linear-gradient(
+            111.38deg,
+            #72fbda 35.93%,
+            rgba(251, 251, 251, 0.416667) 152.79%,
+            rgba(237, 237, 237, 0) 236.26%
+        );
+        padding: 20px 0;
+        }
+        .title_container h1 {
+        font-weight: 600;
+        font-size: 32px;
+        color: var(--primary);
+        text-align: center;
+        }
+
+        .button_container {
+        height: 20vh;
+        display: grid;
+        place-items: center;
+        }
+        .button_container button {
+        background-color: var(--primary);
+        border: none;
+        font-size: 24px;
+        padding: 10px 20px;
+        color: white;
+        letter-spacing: 1px;
+        cursor: pointer;
+        }
+
+        .colors_container {
+        height: calc(80vh - 88px);
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        }
+
+        .color1 {
+        background-color: #ff0000;
+        }
+        .color2 {
+        background-color: #008000;
+        }
+        .color3 {
+        background-color: #ffff00;
+        }
+        .color4 {
+        background-color: #0000ff;
+        }
+        .colors_container :hover p {
+        display: inline-block;
+        }
+        .colors_container p {
+        background-color: rgb(223, 223, 223);
+        padding: 5px 10px;
+        margin-top: 20px;
+        margin-left: 20px;
+        font-size: 20px;
+        display: none;
+        }
+        
+        @media (max-width: 768px) {
+        .title_container h1 {
+            font-size: 24px;
+        }
+        .colors_container {
+        height: calc(80vh - 75px);
+        }
+    }
+        @media (max-width: 350px) {
+        .title_container h1 {
+            font-size: 16px;
+        }
+        .colors_container {
+        height: calc(80vh - 65px);
+        }
+    }
+    </style>
+  </head>
+  <body>
+    <div class="title_container">
+      <h1>Color palette Generator App</h1>
+    </div>
+    <section class="button_container">
+      <button id="generateBtn">Generate Colors</button>
+    </section>
+    <div class="colors_container">
+        <div class="colour color1">
+            <p class="ell">#ff0000</p>
+        </div>
+        <div class="colour color2">
+            <p class="ell">#008000</p>
+        </div>
+        <div class="colour color3">
+            <p class="ell">#ffff00</p>
+        </div>
+        <div class="colour color4">
+            <p class="ell">#0000ff</p>
+        </div>
+    </div>
+    <script>
+        const button = document.querySelector('#generateBtn')
+        const paragraph = document.querySelectorAll('.ell')
+        function colourgenerate(){
+            let hexcolor = '#'
+            const hex = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+            for(let i = 0; i<6 ; i++){
+                let randomno = Math.floor(Math.random() * 15)
+                hexcolor += hex[randomno]
+            }
+            return hexcolor
+        }
+        const topbar = document.querySelector('.title_container')
+        console.log(topbar.offsetHeight)
+        const allcolourEl = document.querySelectorAll('.colour')
+        const singlepara = document.querySelector('.ell')
+        const singlecolourel = document.querySelector('.colour')
+        console.log(allcolourEl);
+        function colourpallete(){
+            allcolourEl.forEach((singlecolourel, key)=>{
+                console.log(singlecolourel, key)
+                let randomcolor = colourgenerate()
+                singlecolourel.style.background = randomcolor
+                paragraph[key].innerHTML = randomcolor
+            })
+        }
+        function copytoclipboard(i){
+            const copyingtxt = paragraph[i]
+            navigator.clipboard.writeText(copyingtxt.innerHTML)
+            .then(()=>{
+                alert('Copied to ClipBoard')
+            }).catch ((error)=> {
+                alert('Could not copy')
+            })
+        }
+        paragraph.forEach((singlepara, i)=>{
+            singlepara.addEventListener('click',()=>{
+            copytoclipboard(i)
+        })
+        })
+    
+        button.addEventListener('click', ()=>{
+            colourpallete()
+        })
+    </script>
+  </body>
+</html>
