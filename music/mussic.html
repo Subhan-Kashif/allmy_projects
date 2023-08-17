@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: "Roboto", sans-serif;
+            scroll-behavior: smooth;
+        }
+        header{
+            background-color: #270082;
+            
+            position: sticky;
+            top: 0px;
+            z-index: 50;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+            width: 100%;
+        }
+        .nav-bar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            padding: 20px 0px;
+            z-index: 10000;
+
+        }
+        .container{
+            max-width: 1150px;
+            margin: 0px auto;
+        }
+        .navbar{
+            display: flex;
+            gap: 15px;
+        }
+        .navbar p{
+            font-weight: 300;
+        }
+        header a{
+            text-decoration: none;
+            color: white;
+            border: 2p solid transparent;
+        }
+        .nav-bar a:hover{
+        
+            border-bottom: 2px solid white;
+        }
+        .navbar i{
+            display: none;
+            cursor: pointer;
+        }
+        .mobile-menu{
+            background-color: #281154;
+            padding: 6px 0px;
+            
+            position: absolute;
+            width: 100%;
+            height: 0px;
+            overflow: hidden;
+            opacity: 0;
+            transition: 0.3s ease-in; 
+        }
+        .mobile-menu p{
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 10px 0px;
+            cursor: pointer;
+            transition: 0.2s ease-in;
+        }
+        .mobile-menu p:hover{
+            background-color: rgb(173, 129, 199);
+            transition: 0.2s ease-in;    
+        }
+        .show-menu{
+            transition: 0.3s ease-in; 
+            height: 200px;
+            opacity: 1;
+        }
+        @media (max-width:680px){
+            .navbar p{
+                display: none;
+            }
+            .navbar i{
+                display: block;
+            }
+            .nav-bar{
+                padding: 20px 10px;
+            }
+        }
+        .hero-section{
+            background-image: url(hero_image1.png);
+            height: 100vh;
+            background-size: cover;
+            color: white;
+            display: grid;
+            place-items: center;
+            text-align: center;
+        }
+        .hero-section .container{
+            margin-top: 100px;
+        }
+        .hero-section h1{
+            font-size: 5rem;
+            margin-bottom: 35px;
+        }
+        .hero-section p{
+            font-weight: 300;
+            margin-top: 30px;
+        }
+        .hero-section h2{
+            font-size: 2rem;
+        }
+        .music{
+            background-color:#281154;
+            color: white;
+            padding-top: 20px;
+        }
+        .music .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .music h2{
+            margin: 20px 0px 30px;
+        }
+        .music button{
+            padding: 7px 10px;
+            margin: 20px;
+            background-color: #dc0000;
+            color: white;
+            border: none;
+            transition: 0.15s ease-in-out;
+        }
+        button:hover{
+            opacity: 0.8;
+            cursor: pointer;
+        }
+        .music-img{
+            position: relative;
+            top: 400px;
+            margin-top: -370px;
+            max-width: 100%;
+            height: auto;
+        }
+        .music-info{
+            margin-top: 480px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .music-info button, .gift-info button{
+            padding: 6px 11px;
+            background-color: #270082;
+            color: white;
+            border: none;
+            width: fit-content;
+        }
+        @media (max-width:1024px){
+            .music-img img, .img img{
+                max-width: 100%; 
+            
+            }
+            .music-img{
+                margin-top: -170px;
+                top: 200px;  
+            }
+            .music-info{
+                margin-top: 250px;
+            }
+        }
+        @media (max-width:600px){
+            .music h2, .music-info h2{
+                font-size: 1.25rem;
+                padding: 0px 0px 0px 10px;
+            }
+            .music h3, .music-info h3, .music-info, .video h3, .gift-info h3{
+                font-size: 1rem;
+                padding: 0px 10px;
+            }
+            .music p, .video p, .gift-info p, .links p{
+                padding: 0px 10px;
+                font-size: 0.85rem;
+            }
+            .gift-info button{
+                margin-left: 10px;
+                font-size: 0.85rem;
+            }
+            .links h4{
+                padding: 0px 10px;
+                font-size: 0.95rem;
+            }
+        }
+
+        .video{
+            background-image: url(video.png);
+            height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+            margin-bottom: 70px;
+            display: flex;
+            align-items: center;
+        }
+        .video .container{
+            margin-top: -100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            text-align: center;
+            
+        }
+        .gift{
+            display: flex;
+            gap: 50px;
+            
+            justify-content: center;
+        }
+        .gift-info{
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 130px;
+        }
+        .gift-info p{
+            color: rgba(0, 0, 0, 0.9);
+            font-weight: 400;
+        }
+        @media (max-width:880px){
+            .gift{
+                flex-direction: column;   
+            }
+            .giftcard{
+                margin: 0px auto;
+                padding: 0px 10px;
+
+            }
+            .-card{
+                width: 100%;
+            }
+        }
+        @media (max-width:780px){
+        .hero-section, .video{
+             height: 70vh;
+             background-size: 100% 100%;
+             background-repeat: no-repeat;
+            }
+            .hero-section h1{
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+            .hero-section h2{
+            font-size: 1.25rem;
+        }
+        .hero-section p{
+            font-weight: 300;
+            margin-top: 15px;
+            font-size: 0.85rem;
+        }
+        }
+        @media (max-width:425px){
+            .music-img {
+                margin-top: -70px;
+                top: 100px
+            }
+            .hero-section, .video{
+             height: 60vh;
+             background-size: 100% 100%;
+             background-repeat: no-repeat;
+            }
+            .music h2, .music-info h2{
+                font-size: 1.1rem;
+                padding: 0px 0px 0px 10px;
+            }
+            .music h3, .music-info h3, .video h3, .gift-info h3{
+                font-size: 0.85rem;
+                padding: 0px 10px;
+            }
+            .music p, .video p, .gift-info p, .links p{
+                font-size: 0.7rem;
+                padding: 0px 10px;
+            }
+            .music-info{
+                margin-top: 150px;
+            }
+            .gift-info button{
+                margin-left: 10px;
+                font-size: 0.7rem;
+            }
+            .links h4{
+                padding: 0px 10px;
+                font-size: 0.85rem;
+            }
+        }
+        .links{
+            background-color: #1b0058;
+            color: white;
+            padding: 20px 0px;
+        }
+        .links .container{
+            display: flex;
+            justify-content: space-between;
+        }
+        .links a{
+            color: white;
+            line-height: 1.4;
+            text-decoration: none;
+            font-weight: 300;
+        }
+        .links a:hover{
+            text-decoration: underline;
+        }
+        .links h4{
+            padding-bottom: 10px;
+            border-bottom: 1px solid white;
+            margin-bottom: 10px;
+        }
+        .footer-lower{
+            background-color: #270082;
+            text-align: center;
+            color: white;
+            padding: 20px 0px;
+        }
+        .music, .video, .hero-section{
+            scroll-margin: 50px;
+        }
+        .gift{
+            scroll-margin: 120px;
+        }
+        @media (max-width:680px){
+            .links .container{
+                flex-wrap: wrap;
+                gap: 20px;
+                padding: 0px 10px;
+            }
+            .links .shop{
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-bar container">
+            <div class="header-nav">
+                <h1>myTunes</h1>
+            </div>
+            <div class="navbar">
+                <p><a href="#hero-section">Overview</a></p>
+                <p><a href="#music">Music</a></p>
+                <p><a href="#video">Video</a></p>
+                <p><a href="#gift">Gift Cards</a></p>
+                <i class="fa-solid fa-bars" id="menu"></i>
+            </div>
+        </div>
+        <div class="mobile-menu">
+            <p><a href="#hero-section" onclick="closemenu()">Overview</a></p>
+            <p><a href="#music" onclick="closemenu()">Music</a></p>
+            <p><a href="#video" onclick="closemenu()">Video</a></p>
+            <p><a href="#gift" onclick="closemenu()">Gift Cards</a></p> 
+        </div>
+    </header>
+    <main>
+        <div class="hero-section" id="hero-section">
+            <div class="container">
+            <h1>my Tunes</h1>
+            <h2>Your music, movies, and TV Shows take center stage.</h2>
+            <p>myTunes is the best way to organize and enjoy the music and TV 
+            Shows you already have- and shop for the ones you dont.
+            Enjoy all the entertainment my tunes has to offer on your MAC and PC
+            </p>
+            </div>
+        </div>
+        <div class="music" id="music">
+            <div class="container">
+            <h2><i class="fa-solid fa-music" style="color: #ffffff;"></i>
+            Music</h2>
+            <h3>
+            Stream over 45 million songs, ad-free. Or download albums and tracks
+            to listen to offline. All the music in your personal myTunes library
+            — no matter where it came from — lives right alongside the Orange
+            Music catalog. Start your free three-month trial with no commitment,
+            and cancel anytime.
+            </h3>
+            <button>Start Your free trial</button>
+            <p>Orange music is available in mytune, and for IOS and Android devices
+            </p>
+            <div class="music-img">
+                <img src="ipad-iphone.png" alt="img">
+            </div>
+            </div>
+        </div>
+        <div class="music-info container">
+            <h2>The movie and TV Collection you always wished for. Granted.</h2>
+            <h3>With over 100,000 movies to choose from, there's always something great 
+                to watch on mytunes and if you watch on Orange Tv 4K, you'll
+                be able to enjoy a tremendous selection of your favourite content
+                in 4K HDR. So get ready to enjoy episodes of your favourite
+                Tv shows or hit movies you've been waiting to see - anytime, anywhere
+                Just tap to play or even download if you are going somewhere you wont have Wifi
+
+            </h3>
+            <button>Read More</button>
+            <div class="img">
+                <img src="mac.png" alt="mac">
+            </div>
+        </div>
+        <div class="video" id="video">
+            <div class="container">
+                <h3>A world of entertainment. Available wherever you are.</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
+                    veniam nobis, nisi ut expedita, doloribus reprehenderit explicabo
+                    non velit repellat alias saepe inventore repellendus? Molestias
+                    suscipit eos tempora? Quae quaerat cumque in veritatis impedit
+                    dolorum sapiente recusandae minima quo aperiam quam, excepturi quasi
+                    totam ad quas? Ipsam laudantium soluta delectus!
+                </p>
+            </div>
+        </div>
+        <div class="gift container" id="gift">
+            <div class="giftcard">
+                <img src="gift.png" alt="card" class="-card">
+            </div>
+            <div class="gift-info">
+                <h3>Gift Card</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt
+                cum explicabo, excepturi eaque commodi minima quas repellendus
+                assumenda facere hic, earum quasi iste asperiores molestiae
+                obcaecati laborum, voluptatum alias velit cupiditate! Quae soluta
+                sapiente quasi, iusto quam magnam doloribus natus quod eius, rerum
+                asperiores aspernatur. Illum neque sequi odit fuga. 
+                </p>
+                <p>Already have an Orange My tunes Music Gift Card?</p>
+                <hr>
+                <button>Redeem</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="links">
+            <div class="container">
+                <div class="shop">
+                    <h4>Shop & Learn</h4>
+                    <p><a href="">Music</a></p>
+                    <p><a href="">Movies</a></p>
+                    <p><a href="">Shows</a></p>
+                    <p><a href="">Apps</a></p>
+                    <p><a href="">Gift Cards</a></p>
+                </div>
+                <div class="shop">
+                    <h4>Orange Store</h4>
+                    <p><a href="">Find a store</a></p>
+                    <p><a href="">Today at Orange</a></p>
+                    <p><a href="">Financing</a></p>
+                    <p><a href="">Orange Camp</a></p>
+                    <p><a href="">Order Status</a></p>
+                </div>
+                <div class="shop">
+                    <h4>Education & Business</h4>
+                    <p><a href="">Orange & Education</a></p>
+                    <p><a href="">Shop for Collage</a></p>
+                    <p><a href="">Orange & Business</a></p>
+                    <p><a href="">Shop for Business</a></p>
+                    <p><a href="">Jobs</a></p>
+                </div>
+                <div class="footer-links">
+                    <h4>About Orange</h4>
+                    <p><a href="">Newsroom</a></p>
+                    <p><a href="">Leadership</a></p> 
+                    <p><a href="">Investors</a></p>
+                    <p><a href="">Envents</a>
+                    <p><a href="">Contact Orange</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-lower">
+            <p>Copyright © 2022 Do Some Coding</p>
+        </div>
+    </footer>
+    <script>
+        const menubar = document.querySelector('#menu')
+        const navmenu = document.querySelector('.mobile-menu')
+        menubar.addEventListener('click', ()=>{
+            navmenu.classList.toggle('show-menu')
+        })
+        function closemenu (){
+            navmenu.classList.remove('show-menu')
+        }
+    </script>
+</body>
+</html>
