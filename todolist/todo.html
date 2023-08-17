@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+        :root {
+        --primary: #3a3a3a;
+        --primary-dark: #302d2d;
+        --green: #008104;
+        --red: #ff0000;
+        }
+
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+
+        html {
+        font-family: "Poppins", sans-serif;
+        }
+
+        body {
+        background-color: var(--primary);
+        }
+
+        .container {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        }
+
+        .box {
+        background-color: white;
+        width: 450px;
+        height: 100vh;
+        padding: 20px;
+        background-color: var(--primary-dark);
+        color: white;
+        position: absolute;
+        }
+        p {
+        font-size: 14px;
+        }
+        h1 {
+        font-weight: 500;
+        font-size: 32px;
+        }
+        h2 {
+        font-weight: 400;
+        font-size: 24px;
+        }
+        h3 {
+        font-weight: 400;
+        font-size: 20px;
+        }
+
+        .box_upper,
+        .balance {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+
+        .balance {
+        margin-top: 20px;
+        }
+
+        .transaction_container {
+        margin-top: 20px;
+        }
+
+        .transactions {
+        margin-top: 10px;
+        padding-right:10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        height: 235px;
+        overflow-y: scroll;
+        }
+        ::-webkit-scrollbar{
+            border-radius: 100vw;
+            background-color: transparent;
+            width: 10px;
+        }
+        ::-webkit-scrollbar-thumb{
+            background-color: #201d1d;
+            border-radius: 10000px;
+        }
+        ::-webkit-scrollbar-thumb:hover{
+            background-color: rgba(20, 17, 17, 0.658);
+        }
+        .transaction {
+        background-color: white;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        }
+        .content{
+            display: flex;
+        }
+        .lower{
+            padding: 10px;
+            display: none;
+        }
+        i{
+            margin-right: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .show{
+            display: block;
+        }
+        .transaction .left {
+        padding: 7px;
+        flex-grow: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        }
+
+        .status {
+        display: grid;
+        place-items: center;
+        color: white;
+        min-height: 40px;
+        min-width: 40px;
+        }
+        .credit {
+        background-color: var(--green);
+        }
+        .debit {
+        background-color: var(--red);
+        }
+
+        .transaction_form {
+        background-color: white;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        color: black;
+        padding: 20px;
+        }
+        .transaction_form h3 {
+        margin-bottom: 10px;
+        }
+
+        .form_control {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        }
+        .form_control:first-child {
+        flex: 2;
+        }
+        .inputs {
+        display: flex;
+        gap: 10px;
+        }
+        form input {
+        padding: 10px 15px;
+        outline: 1px solid transparent;
+        border: 1px solid black;
+        width: 100%;
+        }
+        form input:focus-visible {
+        outline: 1px solid var(--primary-dark);
+        border: 1px solid var(--primary-dark);
+        }
+
+        .buttons_container {
+        display: flex;
+        margin-top: 10px;
+        }
+        .buttons_container button {
+        width: 100%;
+        height: 45px;
+        color: white;
+        border: none;
+        opacity: 0.9;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+        }
+        .buttons_container button:hover {
+        opacity: 1;
+        transition: 0.3s ease-in-out;
+        }
+        .hide{
+            display: none;
+        }
+        #earnBtn {
+        background-color: var(--green);
+        }
+        #expBtn {
+        background-color: var(--red);
+        }
+
+        @media (max-width: 500px) {
+        .box {
+            width: 95%;
+        }
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <section class="box_upper">
+          <h1>Expense Tracker</h1>
+
+          <div class="balance">
+            <h2 class="netamount">₹0</h2>
+            <h3>Your Balance</h3>
+          </div>
+        </section>
+
+        <div class="transaction_container">
+          <h3>Transactions</h3>
+          <hr />
+
+          <div class="transactions">
+            <div class="transaction">
+              <div class="content">
+                <div class="left">
+                    <p>Example Text</p>
+                    <p>+ ₹ 200</p>
+                </div>
+                    <div class="status credit">C</div>
+              </div>
+              <div class="lower">
+                <i class="fa-regular fa-pen-to-square delete"></i>
+                <i class="fa-regular fa-trash-can edit"></i>
+              </div>
+          </div>
+        </div>
+        <section class="transaction_form">
+          <h3>Add Transactions</h3>
+          <form id="sub">
+            <div class="inputs">
+              <div class="form_control">
+                <label for="text">Text</label>
+                <input
+                  placeholder="Enter Description"
+                  type="text"
+                  name="text"
+                  id="text"
+                  class="entertxt"
+                />
+              </div>
+              <div class="form_control">
+                <label for="amount">Amount</label>
+                <input
+                  placeholder="Enter Amount"
+                  type="number"
+                  name="amount"
+                  id="amount"
+                  class="enteramt"
+                />
+              </div>
+            </div>
+
+            <div class="buttons_container">
+              <button id="earnBtn">
+                <p class="earning">₹0</p>
+                <p>Earnings</p>
+              </button>
+              <button id="expBtn">
+                <p class="expense">₹0</p>
+                <p>Expense</p>
+              </button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+    <script>
+        const description = document.querySelector('.entertxt')
+        const amounts = document.querySelector('.enteramt')
+        const formEl = document.querySelector('#sub')
+        const transactionEl = document.querySelector('.transactions')
+        const netEl = document.querySelector('.netamount')
+        const expenseEl = document.querySelector('.expense')
+        const earningEl = document.querySelector('.earning')
+
+        let state = JSON.parse(localStorage.getItem("transaction"));
+
+            if(!state){
+                state = {
+            earnings: 0,
+            expense: 0,
+            net: 0,
+            transactions: [
+                {
+                id: Math.floor(Math.random() * 1000),
+                text: "Example",
+                amount: 10,
+                type: "credit",
+                },
+            ],
+            }; 
+            }
+            let isearn;
+            let earnin = 0 
+            let expens = 0 
+            let netam = 0 
+            let transactiondivEL;
+            function rendertransaction(){
+                transactionEl.innerHTML = ''
+                earnin = 0 
+                expens = 0 
+                netam = 0 
+                state.transactions.forEach((transaction)=>{
+                    const { id, amount, text, type } = transaction;
+                    const isCredit = type === "credit" ? true : false;
+                    const sign = isCredit ? "+" : "-";
+                    let transactiondivEL = 
+                    `<div class="transaction"  id="${id}"> 
+                        <div class="content" onclick='showoptions(${id})'>
+                            <div class="left">
+                                    <p>${text}</p>
+                                    <p>${sign} $ ${amount}</p>
+                                </div>
+                                <div class="status ${isCredit ? "credit" : "debit"}">${
+                                    isCredit ? "C" : "D"}</div>
+                                </div>
+                        <div class="lower">
+                            <i class="fa-regular fa-pen-to-square" onclick='handleupdate(${id})'></i>
+                            <i class="fa-regular fa-trash-can" onclick='handledelete(${id})'></i>
+                        </div>
+                    </div>`
+
+                    if(isCredit){
+                        earnin = earnin + amount
+                    }else{
+                        expens = expens + amount
+                        
+                    }
+                    console.log(earnin);
+                    netam = earnin - expens
+                    transactionEl.insertAdjacentHTML("afterbegin", transactiondivEL);
+                    updateLocalStorage()
+                })
+                earningEl.innerHTML = earnin
+                expenseEl.innerHTML = expens
+                netEl.innerHTML = netam
+            }
+            function addtodo(event){
+            event.preventDefault()
+            if(event.submitter.id === 'earnBtn'){
+                isearn = true
+            }else{
+                isearn = false
+            }
+            const transaction = {
+                id: Math.floor(Math.random() * 1000),
+                text: description.value,
+                amount: +amounts.value,
+                type: isearn ? "credit" : "debit",
+            }
+            state.transactions.push(transaction)
+            rendertransaction()
+            
+        }
+        function showoptions(id){
+        const selectedTransaction = document.getElementById(id);
+        const lowerEl = selectedTransaction.querySelector(".lower");
+        lowerEl.classList.toggle("show")
+        }
+        
+        function handledelete(id){
+            const filtered = state.transactions.filter((t)=> t.id !== id
+            )
+            state.transactions = filtered
+            rendertransaction()
+        }
+        function handleupdate(id){
+            const findind = state.transactions.find((t)=>t.id === id)
+            const { text, amount } = findind
+            amounts.value = amount
+            description.value = text
+            const trans = state.transactions
+            let index = trans.indexOf(findind)
+            setTimeout(()=>{
+                trans.splice(index,1)
+                rendertransaction()
+            }, 3000)
+        }
+        rendertransaction()
+    
+        formEl.addEventListener('submit',()=>{
+            addtodo(event)
+            event.target.reset()  
+        })
+        
+        function updateLocalStorage(){
+            localStorage.setItem('transaction', JSON.stringify(state))
+        }
+    </script>
+  </body>
+</html>
