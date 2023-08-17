@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            margin: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+            border: border-box;
+        }
+        .navbar{
+            height: 60px;
+            background-color: #0f1111;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .navlogo{
+            height: 50px;
+            width: 100px;
+        }
+        .logo{
+            background-image: url("amazon_logo.png");
+            background-size: cover;
+            height: 50px;
+            width: 100px;
+        }
+        .border{
+             border: 2px solid transparent;
+        }
+        .border:hover{
+             border: 1.5px solid white;
+             cursor: pointer;
+        }
+        .icon{
+            display: flex;
+            align-items: center;
+        }
+        .icon i{
+            height: 20px;
+        }
+        .deliver{
+            font-size: 0.7rem;
+            margin-left: 15px;
+            color: #cccccc;
+        }
+        .Count{
+            font-size: 0.85rem;
+            margin-left: 3px;
+            font-weight: 700;
+        }
+        .nav-search{
+            display: flex;
+            justify-content: space-evenly;
+            height: 40px;
+            width: 710px;
+            border-radius: 4px;
+        }
+        .search-input:focus{
+            outline: none;
+        }
+        .nav-search:hover{
+            border: 3px solid orange;
+        }
+        .all{
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            background-color: #f3f3f3;
+            width: 50px;
+            text-align: center;
+            border: none;
+        }
+        .all:hover{
+            opacity: 0.9;
+        }
+        .search-input{
+            flex-grow: 1;
+            font-size: 1rem;
+            border: none;
+        }
+        .search-icon{
+            width: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            background-color: #febd68;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            border: none;
+            color: black;
+        }
+        .search-icon:hover{
+            opacity: 0.9;
+        }
+        .nav-flag img{
+            width: 21.6px;
+            height: 16.2px;
+            margin-right: 4px;
+        }
+        .nav-flag{
+            display: flex;
+            align-items: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+        .nav-flag i{
+            margin: 6px 0px 0px 2px;
+            color: gray;
+        }
+        .info, .orders, .shoppin, .nav-address, .nav-flag{
+            padding: 9px 9px 10px ;
+        }
+        span{
+            font-size: 0.7rem;
+        }
+        .nav-sec{
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+        
+        .shoppin i{
+            font-size: 30px;
+        }
+        .shoppin{
+            font-size: 0.85rem;
+            font-weight: 700;
+            
+        }
+        .panel{
+            background-color: #222f3d;
+            height: 40px;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        .panel-all{
+            font-weight: 700px;
+            padding: 8px 9px;
+        }
+        .panel-info p{
+            display: inline-block;
+            padding: 8px 9px;
+            margin: 5px 0px 6px;
+        }
+        .panel-info{
+            flex-grow: 1;
+            font-size: 0.85rem;
+        }
+        .panel-deals{
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 5px 8px 6px;
+            margin: 6px 2px 7px 1px;
+        }
+        .hero-section{
+            background-image: url("hero_image.jpg");
+            background-size: cover;
+            height: 350px;
+        }
+        .shop-section{
+            background-color: #e2e7e6;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            column-gap: 17px;
+            padding-left: 17px;
+            padding-right: 17px;
+        }
+        .box1{
+            background-color: white;
+            height: 400px;
+            margin-top: 10px;
+            padding: 20px 0px 15px;
+        }
+        .box1 div{
+            height: 300px;
+            background-size: cover;
+            margin: 1rem;
+        }
+        .box1 h2{
+            margin-left: 1rem;
+            font-size: 1.25rem;
+        }
+        .box1 p{
+            margin-left: 1rem;
+            color: #007185;
+        }
+        .back{
+            background-color: #37475a;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: white;
+            text-decoration: none;
+        }
+        .back:hover{
+            opacity: 0.9;
+        }
+        .lists-links{
+            background-color: #222f3d;
+            color: white;
+            display: flex;
+            justify-content: space-evenly;
+            height: 300px;
+        }
+        .lists-links p{
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        ul{
+            margin-top: 20px;
+        }
+        ul a{
+            display: block;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            color: #dddddd;
+        }
+        ul a:hover, .pages a:hover, .box1 p:hover{
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .foot-panel{
+            background-color: #222f3d;
+            color: white;
+            border-top: 0.5px solid white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70px;
+        }
+        .foot-panel2{
+            background-color: #0f1111;
+            color: white;
+            height: 80px;
+            font-size: 0.7rem;
+            text-align: center;
+        }
+        .pages{
+            padding-top: 25px;
+        }
+        .pages a{
+            margin-right: 5px;
+        }
+        .copyright{
+            padding-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header id="head">
+        <div class="navbar">
+            <div class="nav-logo border">
+                <div class="logo">
+                </div>
+            </div>
+            <div class="nav-address border">
+                <p class="deliver">Deliver to</p>
+                <div class="icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p class="Count">Pakistan</p>
+                </div>
+            </div>
+            <div class="nav-search">
+                <select class="all">
+                    <option>All</option>
+                    <input type="text" placeholder="Search Amazon" class="search-input">
+                    <div class="search-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </select>
+            </div>
+            <div class="nav-flag border">
+                <img src="flag.png" alt="flag">
+                EN
+                <i class="fa-solid fa-caret-down"></i>
+            </div>
+            <div class="info border">
+                <p><span>Hello, sign in</span></p>
+                <p class="nav-sec">Account & Lists</p>
+            </div>
+            <div class="orders border">
+                <p><span>Returns</span></p>
+                <p class="nav-sec">Orders</p>
+            </div>
+            <div class="shoppin border">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-all border">
+                <i class="fa-solid fa-bars"></i>
+                All
+            </div>
+            <div class="panel-info">
+                <p class="border">Todays Deal</p>
+                <p class="border">Customer Service</p>
+                <p class="border">Registry</p>
+                <p class="border">Gift Cards</p>
+                <p class="border">Sell</p>
+            </div>
+            <div class="panel-deals border">
+                Shop deals in Electronics
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="hero-section">
+        </div>
+        <div class="shop-section">
+            <div class="box1">
+                <h2>Clothes</h2>
+                <div class="1" style="background-image: url('box1_image.jpg');"></div>
+                <p>Shop now</p>
+            </div>
+            <div class="box1">
+                <h2>Health & Personal Care</h2>
+                <div class="1" style="background-image: url('box2_image.jpg');"></div>
+                <p>Shop now</p>
+            </div>
+            <div class="box1">
+                <h2>Furniture</h2>
+                <div class="1" style="background-image: url('box3_image.jpg');"></div>
+                <p>Shop now</p>
+            </div>
+            <div class="box1">
+                <h2>Electronics</h2>
+                <div class="1" style="background-image: url('box4_image.jpg');"></div>
+                <p>See more</p>
+            </div>
+            <div class="box1">
+                <h2>Beauty Picks</h2>
+                <div class="1" style="background-image: url('box5_image.jpg');"></div>
+                <p>Shop now</p>
+            </div>
+            <div class="box1">
+                <h2>Shop Pet Supplies</h2>
+                <div class="1" style="background-image: url('box6_image.jpg');"></div>
+                <p>See more</p>
+            </div>
+            <div class="box1">
+                <h2>New Arrival and Toys</h2>
+                <div class="1" style="background-image: url('box7_image.jpg');"></div>
+                <p>Shop now</p>
+            </div>
+            <div class="box1">
+                <h2>Discover Fashion Trends</h2>
+                <div class="1" style="background-image: url('box8_image.jpg');"></div>
+                <p>See more</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="bac">
+            <a href="#head" class="back">Back to top</a>
+        </div>
+        <div class="lists-links">
+            <ul>
+                <p>Get to know us</p>
+                <a>Career</a>
+                <a>Blog</a>
+                <a>About Amazon</a>
+                <a>Investor Relations</a>
+                <a>Amazon Devices</a>
+                <a>Amazon Science</a>
+            </ul>
+            <ul>
+                <p>Make Money with Us</p>
+                <a>Sell products on Amazon</a>
+                <a>Sell on Amazon Business</a>
+                <a>Sell apps on Amazon</a>
+                <a>Become an Affiliate</a>
+                <a>Advertise Your Products</a>
+                <a>Self-Publish with Us</a>
+                <a>Host an Amazon Hub</a>
+                <a>See More Make Money with Us</a>
+            </ul>
+            <ul>
+                <p>Amazon Payment Products</p>
+                <a>Amazon Business Card</a>
+                <a>Shop with Points</a>
+                <a>Reload Your Balance</a>
+                <a>Amazon Currency Converter</a>
+            </ul>
+            <ul>
+                <p>Let Us Help You Help</p>
+                <a>Amazon and COVID-19</a>
+                <a>Returns & Replacements</a>
+                <a>Your Orders</a>
+                <a>Shipping Rates & Policies</a>
+                <a>Manage Your Content and Devices</a>
+                <a>Amazon Assistant</a>
+                <a>Help</a>
+            </ul>
+        </div>
+        <div class="foot-panel">
+            <div class="logo foot">
+            </div>
+        </div>
+        <div class="foot-panel2">
+            <div class="pages">
+                <a>Conditions of use</a>
+                <a>Privacy Notice</a>
+                <a>Your Ads Privacy Choices</a>
+            </div>
+            <div class="copyright">
+                © 1996-2023, Amazon.com, Inc. or its affiliates
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
