@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/2d263ba1d2.js" crossorigin="anonymous" defer></script>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            background-color: black;
+            overflow: hidden;
+        }
+        span{
+            background-image: url('https://cdn4.iconfinder.com/data/icons/general-office/91/General_Office_54-512.png');
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 100px;
+            width: 100px;
+            background-size: cover;
+            pointer-events: none;
+            animation: animate 7s linear;
+        }
+        @keyframes animate {
+            0%{
+                transform: translate(50%, 50%);
+                filter: hue-rotate(0);
+            }
+            100%{
+                transform: translate(50%, -5000%);
+                filter: hue-rotate(720deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const body = document.querySelector('body')
+        body.addEventListener('mousemove', (event)=>{
+            const xpos = event.offsetX
+            const ypos = event.offsetY
+            const spanEl = document.createElement('span')
+            spanEl.style.left = xpos + 'px'
+            spanEl.style.top = ypos + 'px'
+            let randomdim = Math.random()*100
+            spanEl.style.width = randomdim + 'px'
+            spanEl.style.height = randomdim + 'px'
+            body.appendChild(spanEl)
+            setTimeout(()=>{
+                spanEl.remove()
+            }, 3000)
+        })
+    </script>
+</body>
+</html>
