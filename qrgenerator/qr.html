@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Generator</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+:root {
+  --primary: #47185c;
+  --primary-dark: #14001d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--primary);
+}
+
+.container {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.box {
+  padding: 20px;
+  width: 400px;
+  background-color: white;
+}
+.upper h1 {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+.upper,
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+form {
+  margin-top: 10px;
+  gap: 10px;
+}
+
+form input {
+  width: 100%;
+  height: 40px;
+  padding: 10px 15px;
+}
+form input:focus-visible {
+  border: 1px solid var(--primary);
+  outline: 1px solid var(--primary);
+}
+form button {
+  width: 100%;
+  height: 40px;
+  padding: 10px 15px;
+  background-color: var(--primary);
+  border: none;
+  color: white;
+  opacity: 0.9;
+  transition: 0.3s ease-in;
+}
+form button:hover {
+  opacity: 1;
+  transition: 0.3s ease-in;
+}
+form button:active {
+  background-color: var(--primary-dark);
+}
+
+.qr_container {
+  border: 1px solid var(--primary);
+  display: flex;
+  justify-content: center;
+
+  height: 0;
+  opacity: 0;
+
+  transition: opacity 0.3s ease-in, height 0.2s ease;
+}
+.qr_container.show {
+  padding: 10px;
+  height: 150px;
+  opacity: 1;
+
+  transition: opacity 0.3s ease-in, height 0.2s ease;
+}
+.qr_container img {
+  height: 100%;
+}
+
+@media (max-width: 500px) {
+  .box {
+    width: 95%;
+  }
+  .box h1 {
+    font-size: 24px;
+  }
+  .upper p {
+    font-size: 14px;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <section class="upper">
+          <h1>QR Code Generator</h1>
+          <p>Paste text to create QR Code</p>
+        </section>
+
+        <form id="qrForm">
+          <input
+            id="qrInputText"
+            type="text"
+            name="qrText"
+            placeholder="Enter Text"
+          />
+          <button id="generateBtn" type="submit">Generate QR Code</button>
+        </form>
+        <section id="qrContainer" class="qr_container">
+          <img id="qrImage" src="./qr.webp" alt="QR Code" />
+        </section>
+      </div>
+    </div>
+    <script>
+        const formel = document.querySelector('#qrform')
+        const buttonel = document.querySelector('#generateBtn')
+        const qrimgelement = document.querySelector('#qrImage')
+        const qrcontainel = document.querySelector('#qrContainer')
+        const inputel = document.querySelector('#qrInputText')
+
+        function rederurl(qrCodeUrl){
+            if(!qrCodeUrl) return;
+            buttonel.innerHTML = 'Generating Qr Code....'
+            qrimgelement.src = qrCodeUrl
+
+            qrimgelement.addEventListener('load', ()=>{
+            setTimeout(()=>{
+                qrcontainel.classList.add('show')
+                buttonel.innerHTML = 'Gemerate Qr Code'  
+            },500)
+        }) 
+        }
+
+        buttonel.addEventListener('click', (e)=>{
+            e.preventDefault()
+            const text = inputel.value
+            const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${text}`;
+       
+            rederurl(qrCodeUrl)
+        })
+        inputel.addEventListener('keyup', ()=>{
+            if(!inputel.value.trim()){
+                qrcontainel.classList.remove('show')
+            }
+        })
+    </script>
+  </body>
+</html>
