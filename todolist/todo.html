@@ -89,6 +89,7 @@
         gap: 10px;
         height: 235px;
         overflow-y: scroll;
+        padding: 10px;
         }
         ::-webkit-scrollbar{
             border-radius: 100vw;
@@ -331,7 +332,7 @@
                         <div class="content" onclick='showoptions(${id})'>
                             <div class="left">
                                     <p>${text}</p>
-                                    <p>${sign} $ ${amount}</p>
+                                    <p>${sign} $${amount}</p>
                                 </div>
                                 <div class="status ${isCredit ? "credit" : "debit"}">${
                                     isCredit ? "C" : "D"}</div>
@@ -353,9 +354,9 @@
                     transactionEl.insertAdjacentHTML("afterbegin", transactiondivEL);
                     updateLocalStorage()
                 })
-                earningEl.innerHTML = earnin
-                expenseEl.innerHTML = expens
-                netEl.innerHTML = netam
+\               earningEl.innerHTML =`$${earnin}`
+                expenseEl.innerHTML = `$${expens}`
+                netEl.innerHTML = `$${netam}`
             }
             function addtodo(event){
             event.preventDefault()
