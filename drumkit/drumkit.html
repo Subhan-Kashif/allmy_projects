@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+    body{
+        height: 100vh;
+        display: flex;
+        gap: 30px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: pink;
+    }
+    h1{
+        font-size: 3rem;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        color: white;
+        letter-spacing: 4px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        white-space: nowrap;
+    }
+    .container {
+        text-align: center;
+    }
+
+    .btn {
+        padding: 30px 50px;
+        background-color: white;
+        border: none;
+        margin: 10px;
+        font-size: 30px;
+        min-width: 200px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        color: white;
+        font-family: cursive;
+        background-image: url(kick.png);
+        background-size: cover;
+        cursor: pointer;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        text-transform: capitalize;
+    }
+    .btn:hover {
+        color: pink;
+    }
+    .btn:active {
+        background-size: 105%;
+    }
+    .b1{
+        background-image: url(snare.png);
+    }
+    .b2{
+        background-image: url(kick.png);
+    }
+    .b3{
+        background-image: url(crash.png);
+    }
+    .b1{
+        background-image: url(tom.png);
+    }
+  </style>
+</head>
+<body>
+    <h1>Drum Kits <i class="fas fa-drum"></i></h1>
+    <div class="container">
+        
+    </div>
+    <script>
+        const  containerEl = document.querySelector('.container')
+        const kits = ['snare', 'kick', ' crash' , 'tom']
+
+        kits.forEach((kit)=>{
+            const buttonEl = document.createElement('button')
+            containerEl.appendChild(buttonEl)
+            buttonEl.classList.add('btn')
+            buttonEl.innerHTML = kit
+            buttonEl.style.backgroundImage = "url(" + kit + ".png)"
+            const audioEl = document.createElement('audio')
+            containerEl.appendChild(audioEl)
+            audioEl.src = kit + '.mp3'
+            buttonEl.addEventListener('click', ()=>{
+                audioEl.play()
+            })
+            window.addEventListener('keydown', (event)=>{
+                if (event.key.toLowerCase() === kit.slice(0, 1)){
+                    audioEl.play()
+                    buttonEl.style.transform = "scale(.9)";
+                    setTimeout(() => {
+                        buttonEl.style.transform = "scale(1)";
+                    }, 100);
+                }
+            })
+        })
+    </script>
+</body>
+</html>
