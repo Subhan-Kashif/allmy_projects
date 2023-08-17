@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        :root{
+            font-size: 16px;
+        }
+        html{
+            font-weight: 300;
+            line-height: 1.4;
+            font-family: "Roboto", sans-serif;
+        }
+        header{
+            position: sticky;
+            top: 0px;
+            background-color: white;
+            z-index: 1000;
+            margin-bottom: 1rem;
+        }
+        .container{
+            max-width: 1150px;
+            margin: 0px auto;
+        }
+        nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.7rem;
+        }
+        nav h2{
+            font-weight: 900;
+        }
+        i{
+            font-size: 1.51rem;
+        }
+        nav a{
+            font-weight: 700;
+            color: rgb(116, 113, 113);
+            font-size: 1.2rem;
+            border-bottom: 2px solid transparent;
+        }
+        .nav a:hover{
+            border-bottom: 2px solid #ccc;
+        }
+        a{
+            color: black;
+            text-decoration: none;
+        }
+        .nav *, .links *{
+            margin-left: 0.9rem;
+        }
+        .fa-bars{
+            display: none;
+        }
+        @media (max-width:460px){
+            :root{
+                font-size: 13.5px;
+            }
+            
+        .h{
+            display: none;
+        }
+        .fa-bars{
+            display: inline-block;
+        }  
+        footer .container{
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
+    }
+        .container{
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .hero-img img{
+            width: 100%;
+        }
+        .hero-info{
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .hero-info p{
+            font-weight: 800;
+            color: rgb(100, 95, 95);
+        }
+        .container hr{
+            margin: 2rem 0px;
+        }
+        .hero-artcle p{
+            margin-bottom: 2rem;
+        }
+        p{
+            font-weight: 500;
+            font-size: 1rem;
+            color: rgb(95, 92, 92);
+        }
+        .hero-artcle h3{
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        footer .container{
+            display: flex;
+            justify-content: space-between;
+            padding: 0.7rem;
+            align-items: center;
+        }
+        @media (max-width:1155px){
+            .ell{
+                padding-right: 0.7rem;
+            }
+        }
+        main{
+            padding: 0px 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="title">
+                <h2>GreatZone</h2>
+            </div>
+            <div class="nav">
+                <a href="home.html">Home</a>
+                <a href="">Post</a>
+                <i class="fa-brands fa-facebook h"></i>
+                <i class="fa-brands fa-instagram h"></i>
+                <i class="fa-brands fa-youtube h"></i>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="hero-section container">
+            <div class="hero-img">
+                <img src="banner.png" alt="banner">
+            </div>
+            <h1>Finibus Bonorum et Malorum</h1>
+            <div class="hero-info">
+                <h3>Written by John Doe</h3>
+                <p>Monday Jan 22</p>
+            </div>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="hero-artcle">
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque
+                aspernatur harum culpa magni. Consequuntur accusamus eum corporis,
+                omnis quis hic iste! Velit voluptate facere est blanditiis explicabo
+                cupiditate accusamus saepe, animi rerum voluptates fugit aut at nam
+                maiores quidem, ad amet dolore vitae optio a fuga! Explicabo quae
+                placeat ipsam reprehenderit sequi. Suscipit sed odit soluta, adipisci
+                itaque eum deserunt sit alias nostrum deleniti numquam aspernatur
+                atque, reiciendis molestias quas, corrupti fugit perferendis enim.
+                Quam libero repellendus numquam dignissimos magni necessitatibus
+                mollitia delectus atque cum sequi saepe reprehenderit, obcaecati
+                magnam optio at? Repellendus excepturi esse ratione voluptate voluptas
+                blanditiis sunt veritatis modi dolorum, doloribus quisquam placeat
+                fuga, minus error aliquam deserunt voluptatum reiciendis eos quasi
+                asperiores maiores tenetur debitis velit. Numquam pariatur repellat
+                sit magnam distinctio beatae mollitia assumenda quis doloremque
+                temporibus facilis, unde aliquam veritatis magni perspiciatis deleniti
+                nam laudantium dolore voluptatum vel ut eum? Provident, ut ex
+                voluptate vel id doloremque distinctio beatae minima inventore. Dicta,
+                sint modi eligendi mollitia minima corrupti amet deleniti asperiores
+                rerum sapiente, corporis odit dolor repudiandae aspernatur tempora. Ex
+                alias magnam voluptatem quo eligendi tempore soluta, repellendus
+                consequuntur amet repellat provident, tenetur in enim perspiciatis eos
+                earum. Exercitationem aut aliquid eligendi beatae earum!
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste veniam
+                vel, modi optio recusandae ipsum accusantium. Ut aliquam doloribus
+                earum perspiciatis eos rem? Velit facilis ipsa voluptatibus nostrum
+                officia quas, maiores optio quod, nobis odit ea enim. Beatae ad porro
+                maxime, iure soluta quos quae ipsam natus ratione. Quo rerum laborum
+                minima ea quidem ut similique corrupti velit suscipit at, laudantium
+                quis fugit praesentium vel aperiam qui, voluptates placeat voluptatem.
+                Porro quidem ad quia at qui, harum a ratione? Molestiae quam
+                exercitationem molestias, fugiat delectus vitae! Accusamus optio,
+                assumenda exercitationem tempora ad alias magnam at ex vero neque
+                facilis perspiciatis?
+            </p>
+            <h3>Section 1.1</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel,
+          voluptatibus. Quo adipisci eos optio laboriosam reiciendis vero id vel
+          consequatur corrupti assumenda incidunt ratione totam, quisquam a ut
+          minus dicta doloremque. Illum reiciendis eum enim eveniet error!
+          Repudiandae labore recusandae maxime impedit rerum quibusdam odio
+          laborum quae ducimus, dolores quidem molestias repellat. Nulla itaque
+          nesciunt rerum, officiis quibusdam praesentium ea, necessitatibus
+          vitae eum dicta optio perferendis ullam saepe beatae? Perspiciatis cum
+          veniam cupiditate quo corrupti esse voluptatem excepturi optio error.
+        </p>
+        <h3>Section 1.2</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic eaque eos est officia amet dolorum commodi debitis alias sequi, repellendus maiores nihil voluptates dicta tempora? Eum exercitationem expedita aliquam optio.
+          Quisquam temporibus, perferendis numquam enim eos quas suscipit magnam eum optio sapiente animi esse ratione quia perspiciatis praesentium porro, iusto velit odit iure quos dolorem doloremque necessitatibus quasi! Ad, animi?
+          Deleniti aliquam, eaque culpa cum assumenda a cupiditate autem ullam quos itaque incidunt delectus eius ex recusandae commodi ducimus quis? Quos obcaecati facilis amet numquam repellat. Maxime ea esse officia.
+          Vitae non quaerat mollitia odio deleniti, iusto provident a maxime odit, voluptas asperiores nisi excepturi voluptates sequi! Saepe placeat sint earum at molestias cum omnis sit, ipsa similique ad delectus.
+          Quasi omnis praesentium impedit voluptas consequatur eaque neque, maxime quam veniam consectetur veritatis rerum delectus temporibus mollitia. Nemo aperiam doloremque sunt deleniti nam, perspiciatis reprehenderit officiis. Unde eum temporibus eaque?
+          Saepe, qui rem quaerat repudiandae soluta odit cupiditate sequi, id, accusantium repellat in impedit eaque quasi et aliquid itaque dolore vel inventore at mollitia suscipit? Quod quis tenetur autem dolores.
+          Placeat voluptatibus a quidem eaque quae dolorum, laboriosam aspernatur ea aut aperiam vero excepturi, ducimus iure veritatis ut! Modi numquam quam perferendis maxime facere quaerat adipisci aperiam distinctio eos aliquam?
+        </p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+        <p>GreatZone 2023 copyright all rights reserved</p>
+        <div class="links">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-youtube"></i>
+        </div>
+        </div>
+    </footer>
+</body>
+</html>
