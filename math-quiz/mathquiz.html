@@ -1,1 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Question Game | Do Some Coding</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+      defer
+    ></script>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+:root {
+  --primary: #8f00ff;
+}
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Poppins", sans-serif;
+}
+
+.background {
+  background-image: url(background1.png);
+  height: 100vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+}
+
+.box {
+  background: rgba(240, 240, 240, 0.68);
+  border-width: 0px 2px 1px 0px;
+  border-style: solid;
+  border-color: #fcddec;
+  box-shadow: 0px 19px 41px rgba(0, 0, 0, 0.36);
+  border-radius: 20px;
+  height: 320px;
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 50px;
+}
+
+.box h2 {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 48px;
+  color: var(--primary);
+}
+.box h3 {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 54px;
+  text-align: center;
+}
+
+#questionForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+#answerInput {
+  background: transparent;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 20px;
+}
+#answerInput:focus-visible {
+  outline: 1px solid var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.primary-btn {
+  height: 46px;
+  background-color: var(--primary);
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-size: 32px;
+}
+
+@media (max-width: 786px) {
+  .box {
+    width: 80%;
+    height: 360px;
+    padding: 20px;
+  }
+  .box h2 {
+    font-size: 28px;
+    line-height: 40px;
+    color: var(--primary);
+  }
+  .box h3 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  #answerInput {
+    padding: 5px 20px;
+  }
+  .primary-btn {
+    font-size: 24px;
+    height: 36px;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="background">
+      <div class="box">
+        <h2>Score = <span id="score">0</span></h2>
+        <h3 id="question">Q. What is 8 multiply by 4 ?</h3>
+        <form id="questionForm">
+          <input required id="answerInput" step="0.01" name="answer" type="number" />
+          <button class="primary-btn" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <script>
+        const scoreel = document.querySelector('#score')
+        const inputel = document.querySelector('#answerInput')
+        const submitform = document.querySelector('#questionForm')
+        const multiplyques = document.getElementById('question')
+        let answer; 
+        let question;
+        let scores = JSON.parse(localStorage.getItem("scores"));
+
+        if (!scores) {
+        scores = 0;
+        }
+        scoreel.innerHTML = scores
+        function rndnum (){
+            return Math.floor(Math.random() * 11)
+        }
+        function generatequestion(){
+            let randomno1 = rndnum()
+            let randomno2 = rndnum()
+            let questionno = Math.floor(Math.random() * 5);
+            switch (questionno){
+                case 1:
+                    question = `What is ${randomno1} multiply by ${randomno2}`
+                    answer = randomno1 * randomno2
+                    break
+                case 2:
+                    question = `What is ${randomno1} plus ${randomno2}`
+                    answer = randomno1 + randomno2
+                    break
+                case 3:
+                    question = `What is ${randomno1} minus ${randomno2}`
+                    answer = randomno1 - randomno2
+                    break
+                case 4:
+                    question = `What is ${randomno1} divided by ${randomno2}`
+                    answer = randomno1 / randomno2  
+                    break  
+            }
+            multiplyques.innerHTML = question
+        }
+        generatequestion()
+        function checkans(event){
+            event.preventDefault()
+            const userans = +inputel.value
+            if (answer === userans){
+                scores++
+                updateLocalStorage()
+                Toastify({
+                    text: 'Your are correct',
+                    gravity: "bottom",
+                    position: "center",
+                    style: {
+                        background: "linear-gradient(to right, #00b09b, #96c93d)",
+                    },
+                }).showToast();
+            } else{
+                scores--
+                updateLocalStorage()
+                Toastify({
+                    text: 'You are wrong',
+                    gravity: 'bottom',
+                    position: 'center',
+                    style: {
+                        background: "linear-gradient(to right, #e33217, #ff001e)",
+                    },
+                }).showToast()
+            }
+            scoreel.innerHTML = scores
+        }
+
+        
+        submitform.addEventListener('submit', ()=>{
+            checkans(event)
+            generatequestion()
+            event.target.reset()
+        })
+        function updateLocalStorage() {
+  localStorage.setItem("scores", JSON.stringify(scores));
+}
+    </script>
+  </body>
+</html>
