@@ -1,1 +1,305 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Comp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+    <header>
+        <div class="header">
+        <div class="nav-bar container" style="padding: 20px 15px;">
+            <div class="header-nav">
+                <i><h1>Techy Post</h1></i>
+            </div>
+            <div class="navbar">
+                <p><a href="#heading">Home</a></p>
+                <p><a href="#intro">Intro</a></p>
+                <p><a href="#develop">Devel..</a></p>
+                <p><a href="#section3">Adv/Dis</a></p>
+                <p><a href="#section2">Contact</a></p>
+                <div class="dropdown"><p><a href="" class="dropdown">Learn more <i class="fa-solid fa-angle-up fa-rotate-180 downicon"></i></a></p>
+                    <div class="dropdown-content">
+                      <a href="advantges.html">Advantages</a>
+                      <a href="disadvantages.html">Disadvantages</a>
+                    </div>
+                </div>
+                <i class="fa-solid fa-bars" id="menu"></i>
+                <i class="fa-solid fa-xmark" id="cross"></i>
+            </div>
+        </div>
+        <div class="mobile-menu">
+            <p><a href="#heading" onclick="closemenu()">Home</a></p>
+                <p><a href="#intro" onclick="closemenu()">Introduction</a></p>
+                <p><a href="#develop" onclick="closemenu()">Development</a></p>
+                <p><a href="#section3" onclick="closemenu()">Adv/Dis</a></p>
+                <p><a href="#section2" onclick="closemenu()">Contact</a></p>
+                <div class="dropdown"><p><a href="" class="dropdown" onclick="closemenu()">Learn more <i class="fa-solid fa-angle-up fa-rotate-180 downicon"></i></a></p>
+                    <div class="dropdown-content">
+                      <a href="">Advantages</a>
+                      <a href="">Disadvantages</a>
+                    </div>
+                </div>
+        </div>
+        </div>
+        <div class="heading" id="heading">
+            <h1>Quantum Computing</h1>
+            <p>
+                Quantum computing is a groundbreaking field that harnesses the principles of quantum mechanics to process information. By leveraging the extraordinary properties of quantum bits, or qubits, such as superposition and entanglement, quantum computers have the capability to surpass the limitations of traditional computing systems, offering unprecedented speed, efficiency, and accuracy
+            </p>
+            <button class="join">
+                Join Us
+            </button>
+        </div>
+    </header>
+    <div class="pop-up">
+        <i class="fa-solid fa-xmark cross" style="color: #000000;"></i>
+        <i class="fa-regular fa-envelope email"></i>
+        <h1>Email Us to Join</h1>
+        <p>Begin writing articles, harnessing your writing and research skills to craft exceptional content and kickstart your path to earning income. Receive $100 for every 10,000 views. For details email us now!!</p>
+        <input type="email" class="inp-email" placeholder="Enter Email">
+        <div class="invalid">Please enter a valid email</div>
+        <button>Sign up</button>
+    </div>
+    <main>
+        <section>
+            <div class="intro" id="intro">
+                <div class="intro-head">
+                <h3>Quantum Computing</h3>
+                <h1>Introduction to Quantum Computing</h1>
+                </div>
+                <div class="content intro-info">
+                <div class="content-info intro-content">
+                <h2>What is Quantum Computing</h2>
+                <p>
+                    Quantum computing is a groundbreaking field that harnesses the principles of quantum mechanics to process information, holds immense potential to revolutionize the world of technology and science. By leveraging the extraordinary properties of quantum bits, or qubits, such as superposition and entanglement, quantum computers have the capability to surpass the limitations of traditional computing systems, offering unprecedented speed, efficiency, and accuracy.In comparison to classical computers that solve problems sequentially, quantum computers deal with problems simaltaneusly. This fundamental difference enables quantum computers to tackle complex calculations and algorithms exponentially faster and with higher precision. Consequently, the emergence of quantum computing paves the way for transformative advancements in various domains such as Artificial intelligence, cybersecurity and manufacturing.
+                </p>
+                </div>
+                <div class="wrapper">
+                    <input type="radio" name="slide" id="one" checked>
+                    <input type="radio" name="slide" id="two">
+                    <input type="radio" name="slide" id="three">
+                    <div class="img img-1">
+                      <img src="istockphoto-1193095471-612x612.jpg" alt="">
+                    </div>
+                    <div class="img img-2">
+                      <img src="quantum_computing-_credit_getty_images.jpg" alt="">
+                    </div>
+                    <div class="img img-3">
+                      <img src="quantum-computer-processor-computer-technology.jpg" alt="">
+                    </div>
+                    <div class="sliders">
+                      <label for="one" class="one"></label>
+                      <label for="two" class="two"></label>
+                      <label for="three" class="three"></label>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="intro" id="develop">
+                <div class="content reverse dev-content">
+                    <div class="bgimg">
+                    </div>
+                    <div class="content-info dev-info">
+                    <h2>Development and History</h2>
+                    <p>
+                        
+                        Quantum computing represents a revolutionary paradigm shift in the world of information processing. Its roots can be traced back to the early 20th century with the inception of quantum mechanics, as formulated by luminaries like Max Planck and Niels Bohr. However, the concept of quantum computing as we understand it today began to take shape in the 1980s when physicist Richard Feynman proposed the idea of simulating quantum systems efficiently with quantum computers. Subsequently, in the mid-1990s, Peter Shor and Lov Grover devised groundbreaking quantum algorithms that demonstrated the potential for quantum computers to solve complex problems exponentially faster than classical computers. Since then, there has been a surge in quantum computing research and development, with tech giants like IBM, Google, and others working on creating practical quantum processors.
+                        Quantum computing, though in its early stages and facing hurdles, holds great promise in cryptography and scientific simulations.
+                    </p>
+                    </div>
+                </div>   
+            </div>
+        </section>
+        <section id="section3">
+            <div class="advan-dis">
+                <div class="advan-dis-head">
+                <h3>Quantum Computing</h3>
+                <h1>Advantages and Disadvantages</h1>
+                </div>
+                <div class="advan-dis-container">
+                <div class="advan">
+                    <h2 class="adv-dis-head">Advantages</h2>
+                    <div class="advan-container">
+                        <div class="clipping clip1">
+                            <div class="adv">
+                                <h2>AI</h2>
+                                <p>
+                                    Machine learning is about computers learning from sets of data and then being able to carry out tasks on their own by analyzing repeating patterns in the data, in a fashion which is much similar to the human brain. Quantum computing can significantly enhance the creation and analyzation of these patterns of data and the inputted data.</p>
+                            </div>
+                        </div>
+                        <div class="clipping clip2">
+                            <div class="adv">
+                                <h2>Cryptography</h2>
+                                <p>
+                                    Cryptography and security are about securing data from unauthorized access. Quantum computing can potentially take cryptography and security to another level by making data much harder to access from a hacker's point of view. As quantum computing uses qubits it can calculate all the possible ways of data breach attempts and provide appropriate data to fortify the information. 
+                                </p>
+                            </div>
+                        </div>
+                        <div class="clipping clip3">
+                            <div class="adv">
+                                <h2>Financial Modelling</h2>
+                                <p>
+                                    With the modeling capabilities of quantum computing, financial organizations could use the technology to better model the behavior of investments and securities at scale. This could help reduce risk, optimize large-scale portfolios and help financial organizations better understand the trends and movements of the global financial economy. </p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="dis-contain">
+                        <h2 class="adv-dis-head">Disadvantages</h2>
+                        <div class="disadvan">
+                            <div class="card-container">
+                                <div class="cards card1">
+                                  <div class="overl"></div>
+                                  <div class="images-cont">
+                                  <img src="https://ts2.space/wp-content/uploads/2023/07/mfrack_realistic_photo_of_AI_man_314b6316-5eed-479a-80dc-1b70f1b35f7b-1024x574.jpeg" alt="">
+                                  <img src="https://wallpaperaccess.com/full/6874133.jpg" alt="">
+                                  <img src="https://c4.wallpaperflare.com/wallpaper/371/264/21/itzmauuuroo-hackers-anonymous-hd-wallpaper-preview.jpg" alt="">
+                                  </div>
+                                  <div class="navig">
+                                    <label for="" class="dfake first selected">DFake</label>
+                                    <label for="" class="limi first">Limitations</label>
+                                    <label for="" class="hack first">Hacker</label>
+                                  </div>
+                                  <div class="card-area">
+                                  <div class="card-content-container ">
+                                  <div class="card-content">
+                                    <h1 class="Author">DeepFakes</h1>
+                                    <div class="list">
+                                      <p> Quantum computing's potential to accelerate AI capabilities raises concerns about the proliferation of deepfakes and AI-generated content. This poses ethical challenges regarding trust and truth, impacting domains like politics and entertainment. The film industry, in particular, may face economic disruption due to the widespread adoption of AI-generated characters and simulations. Balancing quantum computing's benefits with ethical considerations and regulatory measures becomes crucial to harness its potential responsibly.</p>
+                                    </div>
+                                  </div>
+                                  <div class="card-content">
+                                    <h1 class="Author">Limitations</h1>
+                                    <div class="list">
+                                      <p>Another thing that should be noted in regards to quantum computers is that although they carry great potential it has yet to be demonstrated. The current quantum computers that we have are quite limited and require large amounts of resources in order to construct. They are also highly prone to errors as a slighlty higher temperature or a very low noise can cause great disruptions in data processing and results. It is also worth knowing that error correction techniques, at present, are quite few and are not able to fully address the problems that may occur during processing of data.</p>
+                                    </div>
+                                  </div>
+                                  <div class="card-content">
+                                    <h1 class="Author">Hacking/Malware</h1>
+                                    <div class="list">
+                                        <p> Quantum computing holds the potential to revolutionize data encryption, making it more robust and resistant to traditional hacking techniques. However, its ability to swiftly break existing encryption methods poses a significant threat. The large-scale adoption of quantum computing also introduces the risk of coordinated cyberattacks across global servers. As a result, the cybersecurity community is actively working on quantum-resistant security measures to navigate this double-edged sword and secure our digital world in the quantum era. </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="learnmore">
+                <button><a href="advantges.html">Learn more</a></button>
+            </div>
+        </section>
+        <section id="section2">
+            <h3 class="text-center con">CONTACT US</h3>
+            <h1 class="text-center write">Write me anything</h1>
+            <div class="contact">
+            <div class="form">
+              <div class="contact-info">
+                <h1>Lets get in touch</h1>
+                <p>If you wanna share any tech related article contact us </p>
+                <div class="myinfo">
+                  <p><i class="fa-solid fa-location-dot"></i>Lahore Avenue 296</p>
+                  <p><i class="fa-regular fa-envelope"></i>kashifsubhan49@gmail.com</p>
+                  <p><i class="fa-solid fa-phone"></i>123-456-789</p>
+                </div>
+                <div class="connect">
+                  <p>Connect with us</p>
+                  <div class="social-icons">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </div>
+                </div>
+              </div>
+              <form class="contact-form">
+                <h1>Contact Form</h1>
+                <span class="circle circle1"></span>
+                <span class="circle circle2"></span>
+                <div class="in-container">
+                  <input type="text" id="Name" class="input">
+                  <label for="Name" class="elll label">Name</label>
+                  <span>Name</span>
+                  <h5 class="error">Name cannot be blank</h5>
+                </div>
+                <div class="in-container">
+                  <input type="email" id="Email" class="input" >
+                  <label for="Email" class="elll label">Email</label>
+                  <span>Email</span>
+                  <h5 class="error">Enter correct email</h5>
+                </div>
+                <div class="in-container">
+                  <input type="number" id="Num" class="input" >
+                  <label for="Num" class="elll label">Number</label>
+                  <span>Number</span>
+                  <h5 class="error">Number cannot be blank</h5>
+                </div>
+                <div class="in-container">
+                  <textarea type="text" id="Message"  rows="6" class="input"></textarea>
+                  <label for="Message focus" class="mess label">Message</label>
+                  <span>Message</span>
+                  <h5 class="error">Enter message</h5>
+                </div>
+                <button class="submit">
+                  Send Now
+                </button>
+              </form>
+            </div>
+          </div>
+      </section>
+    </main>
+    <footer>
+        <div class="foot">
+            <div class="foot-head">
+                <h1>Techy Post</h1>
+            </div>
+            <div class="footer-cont">
+                <div class="aboutus">
+                    <h3>About Us</h3>
+                    <p>We are a CS related tech page and we post daily articles related to emerging and interesting technologies. we have been active since 2021 and have written over 200 articles. Our team consists of great professors who are hardworking as well as intelligent.</p>
+                    <p>Copyright © 2021-2023, Quantify.com, Inc. or its affiliates</p>
+                </div>
+                <div class="newsletter">
+                    <h3>Join Our Newsletter</h3>
+                    <div class="input-div">
+                        <input type="email" placeholder="Enter Emal">
+                        <div class="icon">
+                            <div class="fas fa-arrow-right"></div>
+                        </div>
+                    </div>
+                    <div class="follow">
+                        <p>Follow us</p>
+                        <div class="social-icons footer-icons">
+                            <i class="fa-brands fa-facebook-f"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-twitter"></i>
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="main_home.html"><div class="back">Back to Home</div></a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/2.0.0/scrollReveal.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
